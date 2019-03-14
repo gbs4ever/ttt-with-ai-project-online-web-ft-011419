@@ -31,7 +31,26 @@ def full?
 @cells.count(" ") == 0
 end
 
+def turn_count
+  num = @cells.count(" ")
+  9 - num 
+end
 
+def taken?(input)
+   position(input) != " " ? true : false
+end
+
+def valid_move?(input)
+i = input.to_i
+  !taken?(input) && i.between?(1, 9)
+end
+
+def update(input, player)
+  val = input.to_i
+  #  position(input)[0] = player.token
+   @cells[val-1] =  player.token
+  # binding.pry
+end
 
 
 
